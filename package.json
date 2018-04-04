@@ -1,0 +1,62 @@
+{
+  "name": "koa_server_first",
+  "version": "1.0.0",
+  "description": "Koa.js CRUD operations and test files",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "nodemon",
+    "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
+    "debug": "npm run build && npm run watch-debug",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "serve-debug": "nodemon --inspect-brk=9229 dist/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helderjnpinto/koa_server_first.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helderjnpinto/koa_server_first/issues"
+  },
+  "homepage": "https://github.com/helderjnpinto/koa_server_first#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
+    "@types/koa-static": "^4.0.0",
+    "@types/koa-views": "^2.0.3",
+    "@types/node": "^9.6.2",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.4",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "ts-jest": "^22.4.2",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.8.1"
+  }
+}
